@@ -57,7 +57,17 @@
         - `Tags` need to be changed to match the dockerhub username and repo name if changed
     - Link to Workflow File 
         - [Docker-build.yml](../.github/workflows/docker-build.yml)
+    - Permalink 
+        - https://github.com/WSU-kduncan/ceg3120-cicd-patel1599-f26/blob/4f7f32345b369c1af2a53f13c2b5702d10346ff8/.github/workflows/docker-build.yml
 ---
-
-
-    
+- Testing and Validation
+    - Test the workflow by pushing changes to the main branch and in the github actions tag we should see a new workflow with the green checkmark. 
+    - Also checked that it didn't work using a test-branch. 
+    - To verify the docker image, i pulled the image from dockerhub and ran it as a conatiner. 
+    - [Docker Repo](https://hub.docker.com/r/apatel1406/aws-lb)
+---
+- Links Used
+    - ![Sample-Workflow](https://github.com/pattonsgirl/CEG3120/blob/main/Projects/Project6/sample-workflows/docker-workflow-v2.yml)
+    - ![Building and Pushing Docker Images](https://github.com/marketplace/actions/build-and-push-docker-images)
+    - ![Publishing Docker Images](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images#publishing-images-to-docker-hub)
+    - ![Publishing and Exposing Ports](https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports)
