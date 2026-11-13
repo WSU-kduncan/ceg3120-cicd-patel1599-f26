@@ -1,4 +1,4 @@
-## 2. Building A Web Service Container
+## 1. Create a Docker container image
 
 - Website built by ChatGPT, `Build a complete themed website with an index page, a second page and a css page`
 - Website on space exploration and the solar system, includes information on space exploration and solar system.
