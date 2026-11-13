@@ -26,3 +26,38 @@
 - Links Used
     1. [Docker Image & Container Help](https://docs.docker.com/build/concepts/dockerfile)
     2. [Building, Tagging and publishing a dockerfile image](https://docs.docker.com/get-started/docker-concepts/building-images/build-tag-and-publish-an-image/)
+
+## 2. GitHub Actions and DockerHub
+- Configuring Github Repo Secrets
+    - How to create a PAT for authentication
+        - 1. Go to dockerhub
+        - 2. Open `Sccount Settings`
+        - 3. Go to `Personal Access Token`
+        - 4. Click `Create New Token`
+        - 5. Set name and set as `Read & Write`
+        - 6. Copy the token and put it somewhere safe. 
+    - How to set repository Secrets for use by GitHub Actions
+        - 1. On your repository go to Settings 
+        - 2. Click on `Secrets and Variables `> Actions
+        - 3. Click `New Repository Secret`
+        - 4. Add the Secret Name and value 
+        - 5. Do this for both USERNAME and TOKEN
+    - Describe the Secrets set for this project
+        - In this case, Secret = `DOCKER_USERNAME`, Value = `apatel1406` and Secret = `DOCKER_TOKEN`, Value = `Dockerhub Generated Token` 
+---
+- CI with Github Actions
+    - I created a Github actions workflow file called [Docker-build.yml](../.github/workflows/docker-build.yml) This code runs everytime something is pushed to the main brunch
+    - Workflow Steps
+        - Checkout: Uses `actions/checkout@v6` to access the repo files
+        - Login To Docker Hub: Uses `docker/login-action@v4` and the repo secrets added earlier as the username and password to authenticate with Dockerhub
+        - Build and Push: Uses `docker/build-push-action@v7` to build the docker image from the Project6 folder and pushes it to dockerhub with the latest tag
+    - Values that may need to the updated if used in a different repo
+        - `Branch` may need to updated if pushed to another branch besides main.
+        - `Context` needs to be changed to a different repo folder
+        - `Tags` need to be changed to match the dockerhub username and repo name if changed
+    - Link to Workflow File 
+        - [Docker-build.yml](../.github/workflows/docker-build.yml)
+---
+
+
+    
