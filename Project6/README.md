@@ -1,13 +1,10 @@
 ## 1. Create a Docker container image
-
 - Website built by ChatGPT, `Build a complete themed website with an index page, a second page and a css page`
 - Website on space exploration and the solar system, includes information on space exploration and solar system.
 - [index.html](web-content/index.html) - Main home page
 - [about.html](web-content/about.html) - Contains the information about the planets
 - [style.css](web-content/style.css) - Stylesheet used for both pages.
-
 ---
-
 - [Dockerfile](Dockerfile) uses the httpd:2.4 server and copies all the contents of the website into the default web directory for apache
 - Instructions to build and push the container image to your DockerHub repository
     1. On your Docker account go to account setting.
@@ -67,10 +64,10 @@
     - [Docker Repo](https://hub.docker.com/r/apatel1406/aws-lb)
 ---
 - Links Used
-    - ![Sample-Workflow](https://github.com/pattonsgirl/CEG3120/blob/main/Projects/Project6/sample-workflows/docker-workflow-v2.yml)
-    - ![Building and Pushing Docker Images](https://github.com/marketplace/actions/build-and-push-docker-images)
-    - ![Publishing Docker Images](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images#publishing-images-to-docker-hub)
-    - ![Publishing and Exposing Ports](https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports)
+    - [Sample-Workflow](https://github.com/pattonsgirl/CEG3120/blob/main/Projects/Project6/sample-workflows/docker-workflow-v2.yml)
+    - [Building and Pushing Docker Images](https://github.com/marketplace/actions/build-and-push-docker-images)
+    - [Publishing Docker Images](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images#publishing-images-to-docker-hub)
+    - [Publishing and Exposing Ports](https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports)
 
 ## Part 3. Semantic Versioning
 - Generating Tags
@@ -93,22 +90,26 @@
         - `context: ./Project6`: Change this if the Dockerfile is located in a different folder.
         - `tags: 'v*'`: Change this if a different version tag format is used.  
     - Link to Workflow File 
-        - ![Docker-build.yml](../.github/workflows/docker-build.yml)
+        - [Docker-build.yml](../.github/workflows/docker-build.yml)
 ---
 - Testing and Validating
     - I tested the workflow by creating and pushing two Git tags, `v1.0.0` and `v1.1.0`. Both GitHub Actions workflow runs completed successfully.
     - On DockerHub the repo showed the generated image tags for both releases and matched the github tags. 
-    - ![Link to DockerHub Repo with Tags](https://hub.docker.com/repository/docker/apatel1406/aws-lb/tags)
+    - [Link to DockerHub Repo with Tags](https://hub.docker.com/repository/docker/apatel1406/aws-lb/tags)
 ---
 - Links Used
-    - ![Manage Tags adn Labels with Github Actions](https://docs.docker.com/build/ci/github-actions/manage-tags-labels/)
-    - ![Docker Meta and Github Actions](https://github.com/docker/metadata-action?tab=readme-ov-file#semver)
-
-
-
-
-
-
-## Overall Links used to multiple sections 
+    - [Manage Tags adn Labels with Github Actions](https://docs.docker.com/build/ci/github-actions/manage-tags-labels/)
+    - [Docker Meta and Github Actions](https://github.com/docker/metadata-action?tab=readme-ov-file#semver)
+    - [Tages and Releases](https://docs.codeberg.org/git/using-tags/)
+    - [Github Actions 101](https://github.com/pattonsgirl/CEG3120/blob/main/CourseNotes/github-actions.md) 
+## Part 4. Project Description & Diagram
+- Continuous Integration Project Overview
+    - The goal of this project is to use Docker and Github actions to build and publish a website continer image to Dockerhub
+    - Semantic versioning is also used in this project to create different versions of the Docker image. This allows older versions of the website to be pulled and run when needed.
+    - I used Apache HTTP server that contains two HTML pages and one css page. Github Actions automatically builds and pushed the docker image to DockerHub when changes are made or a new version is made. 
+---
+- Model 
+    - ![Diagram Model](images/Model.png)
+---
 - Links Used
-    - ![Github Actions 101](https://github.com/pattonsgirl/CEG3120/blob/main/CourseNotes/github-actions.md) 
+    - [Diagram Model](https://github.com/pattonsgirl/CEG3120/blob/main/CourseNotes/github-actions.md) 
