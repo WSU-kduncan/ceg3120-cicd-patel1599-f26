@@ -63,7 +63,7 @@
 - Testing and Validation
     - Test the workflow by pushing changes to the main branch and in the github actions tag we should see a new workflow with the green checkmark. 
     - Also checked that it didn't work using a test-branch. 
-    - To verify the docker image, i pulled the image from dockerhub and ran it as a conatiner. 
+    - To verify the docker image, i pulled the image from dockerhub and ran it as a conatiner. One thing to remember is that port 8080 is already taken up with the original image, and if we want to really test then we would run using 8081:80
     - [Docker Repo](https://hub.docker.com/r/apatel1406/aws-lb)
 ---
 - Links Used
