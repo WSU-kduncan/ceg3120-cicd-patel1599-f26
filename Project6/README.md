@@ -71,3 +71,44 @@
     - ![Building and Pushing Docker Images](https://github.com/marketplace/actions/build-and-push-docker-images)
     - ![Publishing Docker Images](https://docs.github.com/en/actions/tutorials/publish-packages/publish-docker-images#publishing-images-to-docker-hub)
     - ![Publishing and Exposing Ports](https://docs.docker.com/get-started/docker-concepts/running-containers/publishing-ports)
+
+## Part 3. Semantic Versioning
+- Generating Tags
+    - Git tags are used to identify versions of a project. 
+    - To see tags on github
+        - 1. `git tag` > To see tags
+        - 2. `git tag v1.0.0` > Create a new tag
+        - 3. `git push origin v1.0.0` > Push tag to gitub
+---
+- Semantic Versioning Container Images with GitHub Actions
+    - Workflow
+        - Checkout: Uses `actions/checkout@v6` to access the repo files
+        - Login To Docker Hub: Uses `docker/login-action@v4` and the repo secrets added earlier as the username and password to authenticate with Dockerhub
+        - Docker Meta: Uses `docker/metadata-action@v5` to generate docker image tages that match teh Git tags
+        - Build and Push: Uses `docker/build-push-action@v7` to build the docker image from the Project6 folder and pushes it to dockerhub with the latest tag
+    - Values that may need to the updated if used in a different repo
+        - `DOCKER_USERNAME`: Change this to the DockerHub username.
+        - `DOCKER_TOKEN`: Use a PAT belonging to that DockerHub account.
+        - `images: apatel1406/aws-lb`: Change this to the correct DockerHub username and repository name.
+        - `context: ./Project6`: Change this if the Dockerfile is located in a different folder.
+        - `tags: 'v*'`: Change this if a different version tag format is used.  
+    - Link to Workflow File 
+        - ![Docker-build.yml](../.github/workflows/docker-build.yml)
+---
+- Testing and Validating
+    - I tested the workflow by creating and pushing two Git tags, `v1.0.0` and `v1.1.0`. Both GitHub Actions workflow runs completed successfully.
+    - On DockerHub the repo showed the generated image tags for both releases and matched the github tags. 
+    - ![Link to DockerHub Repo with Tags](https://hub.docker.com/repository/docker/apatel1406/aws-lb/tags)
+---
+- Links Used
+    - ![Manage Tags adn Labels with Github Actions](https://docs.docker.com/build/ci/github-actions/manage-tags-labels/)
+    - ![Docker Meta and Github Actions](https://github.com/docker/metadata-action?tab=readme-ov-file#semver)
+
+
+
+
+
+
+## Overall Links used to multiple sections 
+- Links Used
+    - ![Github Actions 101](https://github.com/pattonsgirl/CEG3120/blob/main/CourseNotes/github-actions.md) 
